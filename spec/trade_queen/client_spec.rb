@@ -18,14 +18,6 @@ describe TradeQueen::Client do
         expect(client.access_token).to eq 'baz'
         expect(client.access_token_secret).to eq 'goo'
       end
-
-      describe "when configuring using invalid options" do
-        let(:client) { TradeQueen::Client.new { |config| config.scooby_doo = 'where are you' } }
-
-        it "errors out" do
-          expect { client }.to raise_error
-        end
-      end
     end
 
     describe "when configuring using a hash" do
