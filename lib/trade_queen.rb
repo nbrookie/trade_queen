@@ -1,5 +1,2 @@
 require "trade_queen/version"
-
-module TradeQueen
-  # Your code goes here...
-end
+require "trade_queen/client"
