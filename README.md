@@ -45,7 +45,8 @@ client = TradeQueen::Client.new do |config|
 #### Usage Examples
 After initializing a `client`, you can do the following:
 
-** Fetch quotes**
+**Fetch quotes**
+
 [TradeKing documentation](https://developers.tradeking.com/documentation/market-ext-quotes-get-post)
 
 ```ruby
