@@ -1,8 +1,6 @@
 # TradeQueen
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/trade_queen`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A Ruby client for the TradeKing API.
 
 ## Installation
 
@@ -20,9 +18,44 @@ Or install it yourself as:
 
     $ gem install trade_queen
 
-## Usage
+## Configuration
 
-TODO: Write usage instructions here
+Configure a client using hash syntax:
+
+```ruby
+client = TradeQueen::Client.new(
+  consumer_key: "an application's consumer key",
+  consumer_secret: "an application's consumer secret",
+  access_token: "a user's access token",
+  access_token_secret: "a user's access secret"
+)
+```
+
+Configure a client using block syntax:
+
+```ruby
+client = TradeQueen::Client.new do |config|
+  config.consumer_key = "an application's consumer key",
+  config.consumer_secret = "an application's consumer secret",
+  config.access_token = "a user's access token",
+  config.access_token_secret = "a user's access secret"
+)
+```
+
+#### Usage Examples
+After initializing a `client`, you can do the following:
+
+** Fetch quotes**
+[TradeKing documentation](https://developers.tradeking.com/documentation/market-ext-quotes-get-post)
+
+```ruby
+client.quote("aapl") # pass a string
+client.quote(:aapl) # pass a symbol
+client.quotes(["aapl", :msft]) # pass an array of strings or symbols or both
+client.quotes(:aapl, :msft) # pass tickers as a list of arguments
+```
+`quote` is an alias for `quotes`
+
 
 ## Development
 
