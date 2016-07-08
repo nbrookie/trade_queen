@@ -47,8 +47,6 @@ After initializing a `client`, you can do the following:
 
 **Fetch quotes**
 
-[TradeKing documentation](https://developers.tradeking.com/documentation/market-ext-quotes-get-post)
-
 ```ruby
 client.quote("aapl") # pass a string
 client.quote(:aapl) # pass a symbol
@@ -56,6 +54,8 @@ client.quotes(["aapl", :msft]) # pass an array of strings or symbols or both
 client.quotes(:aapl, :msft) # pass tickers as a list of arguments
 ```
 `quote` is an alias for `quotes`
+
+[TradeKing documentation](https://developers.tradeking.com/documentation/market-ext-quotes-get-post)
 
 
 ## Development
