@@ -20,6 +20,13 @@ module TradeQueen
     def initialize(quote_hash)
       ATTRS.each { |key| instance_variable_set("@#{key}", quote_hash[key.to_s]) }
     end
+
+    def not_found?
+      !found?
+    end
+
+    def found?
+      name != "NA"
     end
   end
 end
