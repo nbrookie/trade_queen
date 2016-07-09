@@ -39,7 +39,7 @@ client = TradeQueen::Client.new do |config|
   config.consumer_secret = "an application's consumer secret",
   config.access_token = "a user's access token",
   config.access_token_secret = "a user's access secret"
-)
+end
 ```
 
 #### Usage Examples
