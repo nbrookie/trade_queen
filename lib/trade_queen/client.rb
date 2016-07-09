@@ -4,7 +4,7 @@ require 'json'
 module TradeQueen
   class Client
     BASE_URL = 'https://api.tradeking.com'
-    VALID_OPTIONS = [:access_token, :access_token_secret, :consumer_key, :consumer_secret]
+    VALID_OPTIONS = [ :access_token, :access_token_secret, :consumer_key, :consumer_secret ].freeze
 
     attr_accessor *VALID_OPTIONS
 
