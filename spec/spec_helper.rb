@@ -4,9 +4,9 @@ require 'webmock/rspec'
 require 'timecop'
 
 def fixture(file)
-  File.new("#{File.expand_path('../fixtures', __FILE__)}/#{file}")
+  File.new("#{File.expand_path('../fixtures', __FILE__)}/#{file}").read
 end
 
 def stub_post(url)
-  stub_request(:post, TradeQueen::Client::BASE_URL + url)
+  stub_request(:post, TradeQueen::Rest::Client::BASE_URL + url)
 end
