@@ -23,7 +23,7 @@ Or install it yourself as:
 Configure a client using hash syntax:
 
 ```ruby
-client = TradeQueen::Client.new(
+client = TradeQueen::Rest::Client.new(
   consumer_key: "an application's consumer key",
   consumer_secret: "an application's consumer secret",
   access_token: "a user's access token",
@@ -34,7 +34,7 @@ client = TradeQueen::Client.new(
 Configure a client using block syntax:
 
 ```ruby
-client = TradeQueen::Client.new do |config|
+client = TradeQueen::Rest::Client.new do |config|
   config.consumer_key = "an application's consumer key",
   config.consumer_secret = "an application's consumer secret",
   config.access_token = "a user's access token",
@@ -48,12 +48,14 @@ After initializing a `client`, you can do the following:
 **Fetch quotes**
 
 ```ruby
+#Fetch a single quote
 client.quote("aapl") # pass a string
 client.quote(:aapl) # pass a symbol
-client.quotes(["aapl", :msft]) # pass an array of strings or symbols or both
-client.quotes(:aapl, :msft) # pass tickers as a list of arguments
+
+#Fetch multiple quotes
+client.quotes(["aapl", :msft])
+client.quotes(:aapl, :msft)
 ```
-`quote` is an alias for `quotes`
 
 [TradeKing documentation](https://developers.tradeking.com/documentation/market-ext-quotes-get-post)
 
