@@ -5,6 +5,8 @@ require "trade_queen/collection"
 #require the rest namespace
 require "trade_queen/rest/client"
 require "trade_queen/rest/quote"
+
+#require the errors namespace (before requiring the parent trade_queen/errors) module
 require "trade_queen/errors/base"
 require "trade_queen/errors/bad_gateway"
 require "trade_queen/errors/bad_request"
