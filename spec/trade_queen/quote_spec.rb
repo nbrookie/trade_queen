@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe TradeQueen::Quote do
+describe TradeQueen::Rest::Quote do
   describe "#not_found?" do
     describe "when a quote has a name of NA" do
-      let(:quote) { TradeQueen::Quote.new("name" => "NA") }
+      let(:quote) { TradeQueen::Rest::Quote.new("name" => "NA") }
 
       it "returns true" do
         expect(quote).to be_not_found
@@ -11,7 +11,7 @@ describe TradeQueen::Quote do
     end
 
     describe "when a quote does not have a name of NA" do
-      let(:quote) { TradeQueen::Quote.new("name" => "APPLE INC") }
+      let(:quote) { TradeQueen::Rest::Quote.new("name" => "APPLE INC") }
 
       it "returns false" do
         expect(quote).to_not be_not_found
@@ -21,7 +21,7 @@ describe TradeQueen::Quote do
 
   describe "#found?" do
     describe "when a quote has a name of NA" do
-      let(:quote) { TradeQueen::Quote.new("name" => "NA") }
+      let(:quote) { TradeQueen::Rest::Quote.new("name" => "NA") }
 
       it "returns false" do
         expect(quote).to_not be_found
@@ -29,7 +29,7 @@ describe TradeQueen::Quote do
     end
 
     describe "when a quote does not have a name of NA" do
-      let(:quote) { TradeQueen::Quote.new("name" => "APPLE INC") }
+      let(:quote) { TradeQueen::Rest::Quote.new("name" => "APPLE INC") }
 
       it "returns true" do
         expect(quote).to be_found
