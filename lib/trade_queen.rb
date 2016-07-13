@@ -2,6 +2,9 @@ require "trade_queen/version"
 require "trade_queen/client"
 require "trade_queen/quote"
 require "trade_queen/collection"
+
+#require the rest namespace
+require "trade_queen/rest/client"
 require "trade_queen/errors/base"
 require "trade_queen/errors/bad_gateway"
 require "trade_queen/errors/bad_request"
