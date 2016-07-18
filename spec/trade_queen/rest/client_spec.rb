@@ -61,14 +61,10 @@ describe TradeQueen::Rest::Client do
     end
 
     describe "when too many requests are made and the rate limit is reached" do
-      let(:now) { Time.now }
       let(:response_headers) do
         {
           "content_type" => 'application/json; charset=utf-8',
-          "x-ratelimit-expire" => [(now + 10).to_i],
-          "x-ratelimit-limit" => ["60"],
-          "x-ratelimit-remaining" => ["0"],
-          "x-ratelimit-used" => ["60"]
+          "x-ratelimit-retry-after" => 21,
         }
       end
       let(:body) { "symbols=aapl" }
@@ -78,13 +74,11 @@ describe TradeQueen::Rest::Client do
         stub_post(TradeQueen::Rest::Quote::URL)
           .with(body: body)
           .to_return(body: fixture(fixture_name), status: 429, headers: response_headers)
-        Timecop.freeze(now)
       end
-      after { Timecop.return }
 
       it "raises an error and has the amount of time to wait before retrying on the error" do
         expect { client.quotes("aapl") }.to raise_error TradeQueen::Errors::TooManyRequests do |e|
-          expect(e.retry_after).to eq 10
+          expect(e.retry_after).to eq 21
         end
       end
     end
