@@ -40,7 +40,7 @@ module TradeQueen
       end
 
       def found?
-        name != "NA"
+        name.downcase != "na" && cl.downcase != "na"
       end
     end
   end
